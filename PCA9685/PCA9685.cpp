@@ -1,19 +1,3 @@
-/*  PCA9685 LED library for Arduino
-    Copyright (C) 2012 Kasper Skårhøj    <kasperskaarhoj@gmail.com> 
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
 #include "PCA9685.h"
 
 PCA9685::PCA9685() {}
@@ -33,8 +17,8 @@ bool PCA9685::init() {
 	} else {
 		isOnline = false;
 	}
-	writeRegister(PCA9685_MODE1, (byte)B10100000);	// set up for auto increment
-	writeRegister(PCA9685_MODE2, (byte)0x10);	// set to output
+	writeRegister(PCA9685_MODE1, (byte)B10100001);	// set up for auto increment
+	writeRegister(PCA9685_MODE2, (byte)0xf);	// set to OE binary 00001111
 	
 	return isOnline;
 }
